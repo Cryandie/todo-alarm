@@ -1,0 +1,48 @@
+* {
+  background-image: linear-gradient(
+    to right,
+    rgb(248, 204, 163),
+    rgb(250, 238, 227)
+  );
+}
+.contasks {
+  padding: 5px 15px;
+  background-color: none;
+  background-image: none;
+  border-radius: 30px;
+}
+.unitask {
+  background-image: linear-gradient(
+    to right,
+    rgb(248, 204, 163),
+    rgb(250, 238, 227)
+  );
+  color: #2f3037;
+  padding: 10px 100px;
+  text-shadow: 0 0 3px #c35f1d, 0 0 5px #2c2c2c;
+}
+.unitday {
+  background-color: #2f3037;
+  background-image: none;
+  color: rgb(245, 160, 48);
+  font-size: small;
+}
+#trash {
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.managetask {
+  display: flex;
+  justify-content: space-between;
+  background-color: none;
+}
+
+.contasks.reminder {
+  border-left: 50px solid rgb(52, 83, 52);
+  border-right: 50px solid rgb(52, 83, 52);
+}

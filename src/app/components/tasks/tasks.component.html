@@ -1,0 +1,8 @@
+<h3 class="titlelist">Tasks list:</h3>
+<!-- Passing props task from parent to child -->
+<app-task-item
+  *ngFor="let task of tasks"
+  [task]="task"
+  (onDeleteEvent)="deleteTask(task)"
+  (toggleReminderEvent)="toggleReminder(task)"
+></app-task-item>

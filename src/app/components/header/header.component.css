@@ -1,0 +1,17 @@
+.tasktitre {
+  margin-top: 25px;
+}
+
+.container {
+  margin-top: 35px;
+}
+.contenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f303700;
+  padding: 5px;
+}
+.addtitre {
+  background-color: #2f303700;
+}
