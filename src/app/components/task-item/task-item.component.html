@@ -4,9 +4,14 @@
   (dblclick)="toggleReminderClick(task)"
 >
   Task : {{ task.id }}
-  <h3 class="unitask">-{{ task.text }}-</h3>
+  <h3 [ngClass]="{ done: task.done }" class="unitask">-{{ task.text }}-</h3>
   <span class="managetask">
     <h4 class="edit">Edit</h4>
+    <i
+      id="donebox"
+      class="bi bi-check2-circle"
+      (click)="toggleProgressionClick(task)"
+    ></i>
     <i id="trash" class="bi bi-trash" (click)="onDeleteClick(task)"></i>
   </span>
   <h3 class="unitday">{{ task.day }}</h3>

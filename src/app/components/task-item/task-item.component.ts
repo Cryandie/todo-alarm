@@ -12,6 +12,7 @@ export class TaskItemComponent implements OnInit {
   @Input() task! : Task ;
   @Output() onDeleteEvent: EventEmitter<Task> = new EventEmitter();
   @Output() toggleReminderEvent: EventEmitter<Task> = new EventEmitter();
+  @Output() toggleProgressionEvent: EventEmitter<Task> = new EventEmitter();
 
   constructor() {
   }
@@ -24,5 +25,7 @@ onDeleteClick(task:Task) {
 toggleReminderClick(task:Task){
   this.toggleReminderEvent.emit(task);
 }
-
+toggleProgressionClick(task:Task){
+ this.toggleProgressionEvent.emit(task);
+}
 }

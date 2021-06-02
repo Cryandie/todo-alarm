@@ -46,3 +46,15 @@
   border-left: 50px solid rgb(52, 83, 52);
   border-right: 50px solid rgb(52, 83, 52);
 }
+#donebox {
+  cursor: pointer;
+  background-image: none;
+  background-color: #f9dcc2;
+  border: 1px solid #532d0b8c;
+  padding: 0px 8px;
+  height: fit-content;
+}
+
+.unitask.done {
+  text-decoration: line-through;
+}
