@@ -30,4 +30,7 @@ toggleProgression(task:Task){
   task.done = !task.done;
   this.taskService.updateTaskReminder(task).subscribe();
 }
+addTask(task:Task){
+  this.taskService.addTask(task).subscribe((task)=>(this.tasks.push(task)))
+}
 }
