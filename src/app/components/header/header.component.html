@@ -1,12 +1,13 @@
 <h2 class="tasktitre">Manage your Tasks</h2>
 <div class="container">
   <div class="contenu">
-    <h3 class="addtitre">Add a task</h3>
+    <h3 class="addtitre" *ngIf="showAddTask; else hideTask">Hide task</h3>
+    <ng-template #hideTask> <h3>Add Task</h3></ng-template>
     <app-button
-      text="+"
-      color="rgb(29, 163, 58)"
+      text="{{ showAddTask ? ' - ' : ' + ' }}"
+      color="{{ showAddTask ? 'red' : 'rgb(29, 163, 58)' }}"
       class="btn"
-      (btnClickEvent)="transferAddTask()"
+      (btnClickEvent)="toggleAddTask()"
     ></app-button>
   </div>
 </div>

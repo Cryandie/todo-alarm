@@ -11,7 +11,8 @@
 .addtitre,
 .tasktitre,
 .grandtitre,
-.contasks {
+.contasks,
+.contenu {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

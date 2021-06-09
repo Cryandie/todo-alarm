@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" *ngIf="showAddTask">
   <div class="form-control">
     <label for="text"> Task </label>
     <input
@@ -7,6 +7,7 @@
       [(ngModel)]="text"
       id="text"
       placeholder="Write your task here"
+      spellcheck="false"
     />
   </div>
 
@@ -18,6 +19,7 @@
       [(ngModel)]="day"
       id="day"
       placeholder="Add the Day and Time"
+      spellcheck="false"
     />
   </div>
 
