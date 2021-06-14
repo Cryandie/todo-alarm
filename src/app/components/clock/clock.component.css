@@ -1,0 +1,14 @@
+.container {
+  /* background-color: rgba(88, 71, 180, 0.602); */
+  background-color: rgba(53, 50, 65, 0.602);
+}
+.clockbox,
+.daybox {
+  background-color: rgb(92, 85, 131);
+  color: rgb(245, 160, 48);
+  box-sizing: border-box;
+  padding: 30px 40px;
+  display: inline-block;
+  font-size: 25px;
+  user-select: none;
+}

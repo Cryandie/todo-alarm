@@ -16,12 +16,14 @@ export class AddTaskComponent implements OnInit {
   done: boolean = false ;
   subscription : Subscription;
   showAddTask : boolean = false;
+
   constructor(private uiService: UiService) {
     this.subscription =  this.uiService.onToggle().subscribe((value)=>(this.showAddTask = value))
    } 
 
   ngOnInit(): void {
   }
+
   onSubmit(){
     if (!this.text)  {
       alert("You need to add a Task before saving");

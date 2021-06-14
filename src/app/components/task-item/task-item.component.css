@@ -43,8 +43,8 @@
 }
 
 .contasks.reminder {
-  border-left: 50px solid rgb(52, 83, 52);
-  border-right: 50px solid rgb(52, 83, 52);
+  border-left: 50px solid rgba(88, 71, 180, 0.602);
+  border-right: 50px solid rgba(88, 71, 180, 0.602);
 }
 #donebox {
   cursor: pointer;
