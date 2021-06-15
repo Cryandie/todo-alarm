@@ -1,0 +1,9 @@
+<button (click)="addHour()">+</button> <button (click)="subsHour()">-</button>
+{{ this.alarmHour }} :
+{{ this.alarmMinute }}
+<button (click)="addMinute()">+</button>
+<button (click)="subsMinute()">-</button>
+<br />
+<br />
+<button (click)="toggleAlarm()">Set Alarm</button>
+<button *ngIf="this.stfuAlarm" (click)="stopAlarm()">Stop</button>

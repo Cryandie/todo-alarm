@@ -14,6 +14,7 @@ export class ClockComponent implements OnInit {
   public second! : string ; 
   public day! : string ;
 
+
   constructor() { }
 
   ngOnInit() {
@@ -22,7 +23,6 @@ export class ClockComponent implements OnInit {
       this.updateDate(date);
       this.day = this.week[this.weekDate.getDay()]; 
     }, 1000)
-   
   }
 
   updateDate(date:Date){
@@ -34,7 +34,8 @@ export class ClockComponent implements OnInit {
 
     const seconds = date.getSeconds();
     this.second = seconds < 10 ? '0' + seconds : seconds.toString(); 
-    
+  
   }
+
 
 }

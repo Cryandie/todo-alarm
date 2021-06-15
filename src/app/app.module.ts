@@ -10,6 +10,7 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
 import { ClockComponent } from './components/clock/clock.component';
+import { AlarmComponent } from './components/alarm/alarm.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ClockComponent } from './components/clock/clock.component';
     TaskItemComponent,
     AddTaskComponent,
     ClockComponent,
+    AlarmComponent,
   ],
   imports: [
     BrowserModule,
