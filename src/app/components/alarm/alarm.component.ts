@@ -27,10 +27,8 @@ export class AlarmComponent implements OnInit {
 
   //Displaying the Alarm Configuration :
   configAlarm(date:Date){
-    this.alarmHour = date.getHours().toString();
-    this.alarmMinute = date.getMinutes().toString();
-    // console.log(date.getMinutes())
-    //TODO : Fix bug and Add 0 when minute <10 before using add/subsminute
+    this.alarmHour = date.getHours()<10? '0' + date.getHours() : date.getHours().toString();
+    this.alarmMinute = date.getMinutes()<10? '0' + date.getMinutes() : date.getMinutes().toString();
   }
 
 
@@ -59,6 +57,10 @@ export class AlarmComponent implements OnInit {
   //Turning On/Off Alarm :
   toggleAlarm(){
     this.setAlarm = !this.setAlarm ;
+    // this.setAlarm === true ? alert(`Your Alarm is Set at ${this.alarmHour}:${this.alarmMinute}`): alert('Alarm Turned Off')
+  }
+  //Display current Alarm time if there is one to user , if not tell him there is no alarm :
+  showCurrentAlarm(){
     this.setAlarm === true ? alert(`Your Alarm is Set at ${this.alarmHour}:${this.alarmMinute}`): alert('Alarm Turned Off')
   }
 
@@ -67,24 +69,25 @@ export class AlarmComponent implements OnInit {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
     const currentMinute = currentTime.getMinutes();
-    (this.setAlarm === true && this.setHour === currentHour && this.setMinute === currentMinute) ? (this.stfuAlarm = true , this.playAlarm = true)
-    : '';
-    // this.audioAlarm();
+    (this.setAlarm === true && this.setHour === currentHour && this.setMinute === currentMinute &&currentTime.getSeconds() === 0) ? (this.stfuAlarm = true , this.playAlarm = true)
+    : (this.stfuAlarm = false , this.playAlarm = false);
+    this.audioAlarm();
   }
 
   //Alarm STOP :
   stopAlarm(){
+    this.playAlarm = false;
     this.setAlarm = !this.setAlarm;
     this.stfuAlarm = !this.stfuAlarm;
-    this.playAlarm = !this.playAlarm;
-  }
+  } // TO FIX ! 
 
   //Alarm Sound : 
-  // audioAlarm(){
-  //   const alarmSound = new Audio();
-  //   this.playAlarm ? 
-  //   alarmSound.play()
-  //   : ''
-  // }
+  audioAlarm(){
+    const alarmSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-space-shooter-alarm-1002.mp3");
+    // alarmSound.loop = false ;
+    this.playAlarm ? 
+    alarmSound.play()
+    : ''
+  }
 
 }
