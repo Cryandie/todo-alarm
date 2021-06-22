@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap");
+
+.settingtimebtn,
+.alarmtime {
+  padding: 15px 20px;
+  /* font-size: 20px; */
+  border-radius: 20px;
+}
+
+.alarmtime {
+  font-weight: bolder;
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  padding: 15px 10px;
+}
+
+.fixwink {
+  padding: 15px 1px;
+  font-weight: bolder;
+  border-radius: 20px;
+  font-size: 15px;
+  font-family: "Roboto Mono", monospace;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #35383e;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.setalarmbtn {
+  padding: 5px 20px;
+  background-color: #2d2b36;
+  border-radius: 20px;
+  font-weight: bolder;
+  font-family: "Baloo Tammudu 2", cursive;
+  font-size: 15px;
+}
+
+.alarmenabled,
+h3 {
+  padding: 15px 30px;
+  background-color: #2f3037;
+  font-family: "Akaya Kanadaka", cursive;
+}
+.alarmenabled button {
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-weight: bolder;
+}
+.sayon {
+  color: rgb(245, 160, 48);
+  background-color: #2f3037;
+}

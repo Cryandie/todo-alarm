@@ -1,14 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 .container {
   /* background-color: rgba(88, 71, 180, 0.602); */
   background-color: rgba(53, 50, 65, 0.602);
 }
-.clockbox,
-.daybox {
+.dayclock {
   background-color: rgb(92, 85, 131);
   color: rgb(245, 160, 48);
+  font-family: "Roboto Mono", monospace;
   box-sizing: border-box;
   padding: 30px 40px;
   display: inline-block;
-  font-size: 25px;
+  font-size: 20px;
   user-select: none;
+  border-radius: 10px;
+  border: 3px solid rgb(46, 20, 117);
 }

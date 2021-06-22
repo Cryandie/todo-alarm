@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,21 +8,35 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-}
-.addtitre,
-.tasktitre,
-.grandtitre,
-.contasks,
-.contenu {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+button {
+  cursor: pointer;
+}
+/* .addtitre,
+.tasktitre,
+.grandtitre,
+.contasks,
+.contenu,
+.settingtimebtn,
+.alarmtime,
+.fixwink,
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
 .toppart,
 .grandtitre,
 .tasktitre {
   background-color: #2f3037;
+}
+.grandtitre {
+  font-family: "Yatra One";
 }
 .btn {
   border: none;
@@ -30,4 +45,13 @@
   background: #fff;
   color: #fff;
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#8379c3, #5c5583);
+  border-radius: 20px;
 }

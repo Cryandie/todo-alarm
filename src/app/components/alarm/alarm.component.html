@@ -1,14 +1,41 @@
-<button (click)="addHour()">+</button> <button (click)="subsHour()">-</button>
-{{ this.alarmHour }} :
-{{ this.alarmMinute }}
-<button (click)="addMinute()">+</button>
-<button (click)="subsMinute()">-</button>
+<button [disabled]="this.setAlarm" class="settingtimebtn" (click)="addHour()">
+  +
+</button>
+<button [disabled]="this.setAlarm" class="settingtimebtn" (click)="subsHour()">
+  -
+</button>
+<span *ngIf="!this.setAlarm && this.doubleDot" class="fixwink">
+  - - : - -
+</span>
+<span
+  class="alarmtime"
+  *ngIf="this.setAlarm || !this.doubleDot"
+  [style.color]="!this.setAlarm ? '#fff' : 'rgb(245, 160, 48)'"
+>
+  {{ this.alarmHour }}
+  :
+  {{ this.alarmMinute }}
+</span>
+<button [disabled]="this.setAlarm" class="settingtimebtn" (click)="addMinute()">
+  +
+</button>
+<button
+  [disabled]="this.setAlarm"
+  class="settingtimebtn"
+  (click)="subsMinute()"
+>
+  -
+</button>
 <br />
 <br />
-<button *ngIf="!this.setAlarm" (click)="toggleAlarm()">Set Alarm</button>
-<h4 *ngIf="this.setAlarm && !this.stfuAlarm">
-  Alarm enabled
-  <button (click)="showCurrentAlarm()">Show current alarm</button>
-  <button (click)="toggleAlarm(); showCurrentAlarm()">Disable</button>
-</h4>
-<button *ngIf="this.setAlarm" (click)="stopAlarm()">Stop</button>
+<button class="setalarmbtn" *ngIf="!this.setAlarm" (click)="toggleAlarm()">
+  Set Alarm
+</button>
+<div class="alarmenabled" *ngIf="this.setAlarm">
+  <h3>
+    Your Alarm is
+    <span class="sayon">ON</span>
+  </h3>
+  <br />
+  <button class="setalarmbtn" (click)="stopAlarm()">Turn it OFF</button>
+</div>

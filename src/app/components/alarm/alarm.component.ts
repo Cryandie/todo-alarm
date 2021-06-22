@@ -8,20 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlarmComponent implements OnInit {
   public alarmDate = new Date() ;
+  public alarmSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3");
   public alarmHour! : string ;
   public alarmMinute! : string ; 
-  public alarmDay! : string ;
+  // public alarmDay! : string ;
   public setMinute:number = this.alarmDate.getMinutes();
   public setHour:number = this.alarmDate.getHours();
   public setAlarm:boolean = false ;
   public stfuAlarm : boolean = false;
   public playAlarm : boolean = false ;
+  public doubleDot : boolean = true;
   constructor() { }
 
   ngOnInit() {
     this.configAlarm(this.alarmDate);
     setInterval(() =>{
-      this.triggerAlarm()
+      this.triggerAlarm() ; this.dotWink()
     },1000)
   }
 
@@ -57,11 +59,6 @@ export class AlarmComponent implements OnInit {
   //Turning On/Off Alarm :
   toggleAlarm(){
     this.setAlarm = !this.setAlarm ;
-    // this.setAlarm === true ? alert(`Your Alarm is Set at ${this.alarmHour}:${this.alarmMinute}`): alert('Alarm Turned Off')
-  }
-  //Display current Alarm time if there is one to user , if not tell him there is no alarm :
-  showCurrentAlarm(){
-    this.setAlarm === true ? alert(`Your Alarm is Set at ${this.alarmHour}:${this.alarmMinute}`): alert('Alarm Turned Off')
   }
 
   //Alarm Trigger :
@@ -70,24 +67,34 @@ export class AlarmComponent implements OnInit {
     const currentHour = currentTime.getHours();
     const currentMinute = currentTime.getMinutes();
     (this.setAlarm === true && this.setHour === currentHour && this.setMinute === currentMinute &&currentTime.getSeconds() === 0) ? (this.stfuAlarm = true , this.playAlarm = true)
-    : (this.stfuAlarm = false , this.playAlarm = false);
+    : ''
+    // (this.stfuAlarm = false , this.playAlarm = false);
     this.audioAlarm();
   }
 
   //Alarm STOP :
   stopAlarm(){
+    this.alarmSound.pause();
+    this.setAlarm = false;
     this.playAlarm = false;
-    this.setAlarm = !this.setAlarm;
-    this.stfuAlarm = !this.stfuAlarm;
+    this.stfuAlarm = false;
   } // TO FIX ! 
 
   //Alarm Sound : 
   audioAlarm(){
-    const alarmSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-space-shooter-alarm-1002.mp3");
-    // alarmSound.loop = false ;
+    this.alarmSound.loop = true ;
     this.playAlarm ? 
-    alarmSound.play()
-    : ''
+    this.alarmSound.play()
+    :this.alarmSound.pause();
   }
 
+  dotWink(){
+    !this.setAlarm?
+    this.doubleDot = !this.doubleDot : ''
+  }
+
+    //Display current Alarm time if there is one to user , if not tell him there is no alarm :
+    // showCurrentAlarm(){
+    //   this.setAlarm === true ? alert(`Your Alarm is Set at ${this.alarmHour}:${this.alarmMinute}`): alert('Alarm Turned Off')
+    // }
 }

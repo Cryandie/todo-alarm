@@ -1,32 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 * {
-  background-image: linear-gradient(
-    to right,
-    rgb(248, 204, 163),
-    rgb(250, 238, 227)
-  );
+  background-image: linear-gradient(to right, #8379c3, #5c5583);
 }
 .contasks {
   padding: 5px 15px;
   background-color: none;
   background-image: none;
   border-radius: 30px;
+  /* box-sizing: border-box;
+  display: inline-block;
+  background-color: rgb(54, 46, 78); */
 }
 .unitask {
-  background-image: linear-gradient(
-    to right,
-    rgb(248, 204, 163),
-    rgb(250, 238, 227)
-  );
-  color: #2f3037;
+  color: rgb(245, 160, 48);
   padding: 10px 100px;
-  text-shadow: 0 0 3px #c35f1d, 0 0 5px #2c2c2c;
+  font-family: "Dancing Script", cursive;
+  font-weight: bolder;
+  font-size: 27px;
+  /* text-shadow: 0 0 3px rgb(245, 160, 48), 0 0 5px #68594c; */
 }
 .unitday {
   background-color: #2f3037;
   background-image: none;
-  color: rgb(245, 160, 48);
+  color: #f9dcc2;
   font-size: small;
 }
+
 #trash {
   color: red;
   display: flex;
@@ -49,7 +48,7 @@
 #donebox {
   cursor: pointer;
   background-image: none;
-  background-color: #f9dcc2;
+  background-color: #8ddb59be;
   border: 1px solid #532d0b8c;
   padding: 0px 8px;
   height: fit-content;
