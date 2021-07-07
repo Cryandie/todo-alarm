@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from './../../Task';
 import { TaskService } from './../../services/task.service';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 
 @Component({
@@ -33,4 +33,9 @@ toggleProgression(task:Task){
 addTask(task:Task){
   this.taskService.addTask(task).subscribe((task)=>(this.tasks.push(task)))
 }
+
+drop(event: CdkDragDrop<string[]>) {
+  moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+}
+
 }

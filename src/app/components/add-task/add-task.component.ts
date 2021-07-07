@@ -11,7 +11,7 @@ import {Task} from './../../Task';
 export class AddTaskComponent implements OnInit {
   @Output() onAddTaskEvent : EventEmitter<Task> = new EventEmitter() ;
   text!: string;
-  day!: string;
+  day!: string|Date;
   reminder: boolean = false;
   done: boolean = false ;
   subscription : Subscription;
@@ -21,7 +21,8 @@ export class AddTaskComponent implements OnInit {
     this.subscription =  this.uiService.onToggle().subscribe((value)=>(this.showAddTask = value))
    } 
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
   onSubmit(){
@@ -35,7 +36,7 @@ export class AddTaskComponent implements OnInit {
     }
     const newTask = {
       text : this.text,
-      day : this.day,
+      day : this.day.toString().substring(0,15),
       reminder : this.reminder,
       done : this.done,
     }
@@ -45,4 +46,14 @@ export class AddTaskComponent implements OnInit {
     this.day= "";
     this.reminder= false;
   }
-}
+  
+  noPastDate(d?: Date | null): boolean {
+    const actualDate = new Date
+    const day = (d || actualDate).getDate();
+    const month = (d || actualDate).getMonth();
+    
+    return day >= actualDate.getDate() && month >= actualDate.getMonth()
+  }
+
+  }
+

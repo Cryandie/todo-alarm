@@ -11,7 +11,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
 import { ClockComponent } from './components/clock/clock.component';
 import { AlarmComponent } from './components/alarm/alarm.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { AlarmComponent } from './components/alarm/alarm.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
 
   ],
   providers: [],

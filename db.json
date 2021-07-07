@@ -5,14 +5,7 @@
       "text": "Learn Angular",
       "day": "May 5th at 2:30pm",
       "reminder": false,
-      "done": true
-    },
-    {
-      "text": "Learn More Angular ",
-      "day": "May 7th at 12:30",
-      "reminder": false,
-      "done": false,
-      "id": 2
+      "done": false
     },
     {
       "text": "Seedbytes Meeting",
@@ -20,6 +13,20 @@
       "reminder": false,
       "done": false,
       "id": 3
+    },
+    {
+      "text": "Préparer à manger",
+      "day": "Thu Jul 01 2021",
+      "reminder": false,
+      "done": false,
+      "id": 5
+    },
+    {
+      "text": "More Angular",
+      "day": "Thu Jul 01 2021",
+      "reminder": false,
+      "done": false,
+      "id": 6
     }
   ]
 }

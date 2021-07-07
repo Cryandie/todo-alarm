@@ -68,7 +68,6 @@ export class AlarmComponent implements OnInit {
     const currentMinute = currentTime.getMinutes();
     (this.setAlarm === true && this.setHour === currentHour && this.setMinute === currentMinute &&currentTime.getSeconds() === 0) ? (this.stfuAlarm = true , this.playAlarm = true)
     : ''
-    // (this.stfuAlarm = false , this.playAlarm = false);
     this.audioAlarm();
   }
 

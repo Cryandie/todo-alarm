@@ -1,36 +1,51 @@
-<form (ngSubmit)="onSubmit()" *ngIf="showAddTask">
-  <div class="form-control">
-    <label for="text"> Task </label>
-    <input
-      type="text"
-      name="text"
-      [(ngModel)]="text"
-      id="text"
-      placeholder="Write your task here"
-      spellcheck="false"
-    />
-  </div>
+<form class="form-container" (ngSubmit)="onSubmit()" *ngIf="showAddTask">
+  <mat-form-field appearance="outline" class="task-container">
+    <mat-label for="text">Task:</mat-label>
+    <div class="form-control">
+      <input
+        #input
+        matInput
+        type="text"
+        name="text"
+        [(ngModel)]="text"
+        required
+        maxLength="20"
+        spellcheck="false"
+        placeholder="Write your task here"
+      />
+      <mat-hint> Max 20 Characters</mat-hint>
+      <mat-hint align="end"> {{ input.value?.length || 0 }}/20</mat-hint>
+    </div>
+  </mat-form-field>
 
-  <div class="form-control">
-    <label for="day"> Day&Time </label>
+  <br />
+
+  <mat-form-field class="date-picker" appearance="fill">
+    <mat-label for="day">Set Your Deadline</mat-label>
+
     <input
-      type="text"
+      matInput
       name="day"
+      type="text"
       [(ngModel)]="day"
-      id="day"
-      placeholder="Add the Day and Time"
-      spellcheck="false"
+      [matDatepickerFilter]="noPastDate"
+      [matDatepicker]="picker"
     />
-  </div>
+    <mat-datepicker-toggle
+      class="date-icon"
+      matSuffix
+      [for]="picker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
-  <div class="form-control-check">
-    <label for="reminder"> Reminder </label>
-    <input
-      type="checkbox"
-      name="reminder"
-      [(ngModel)]="reminder"
-      id="reminder"
-    />
-  </div>
-  <input type="submit" value="Save New Task" class="btn btn-save" />
+  <mat-checkbox
+    for="reminder"
+    name="reminder"
+    [(ngModel)]="reminder"
+    class="example-margin"
+    >Add Reminder</mat-checkbox
+  >
+  <br />
+  <button type="submit" mat-raised-button>Save Task</button>
 </form>

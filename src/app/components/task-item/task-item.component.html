@@ -1,20 +1,39 @@
-<div
-  [ngClass]="{ reminder: task.reminder }"
-  class="contasks"
-  (dblclick)="toggleReminderClick(task)"
->
-  Task : {{ task.id }}
-  <h3 [ngClass]="{ done: task.done }" class="unitask">{{ task.text }}</h3>
-  <span class="managetask">
-    <!-- Add Edit button -->
-    <h4 class="edit"></h4>
-    <i
-      id="donebox"
-      class="bi bi-check2-circle"
-      (click)="toggleProgressionClick(task)"
-    ></i>
-    <i id="trash" class="bi bi-trash" (click)="onDeleteClick(task)"></i>
-  </span>
-  <h3 class="unitday">{{ task.day }}</h3>
+<div class="contasks">
+  <div class="task-container" [ngClass]="{ reminder: task.reminder }">
+    <h5>Task : {{ task.id }}</h5>
+    <h3 [ngClass]="{ done: task.done }" class="unitask">{{ task.text }}</h3>
+    <h3 class="unitday">{{ task.day }}</h3>
+    <span class="managetask">
+      <mat-icon
+        id="donebox"
+        *ngIf="!task.done"
+        (click)="toggleProgressionClick(task)"
+      >
+        check_circle
+      </mat-icon>
+      <mat-icon
+        id="donebox"
+        *ngIf="task.done"
+        (click)="toggleProgressionClick(task)"
+      >
+        unpublished
+      </mat-icon>
+      <mat-icon
+        id="reminder-icon"
+        *ngIf="!task.reminder"
+        (click)="toggleReminderClick(task)"
+      >
+        notification_important</mat-icon
+      >
+      <mat-icon
+        id="reminder-icon"
+        *ngIf="task.reminder"
+        (click)="toggleReminderClick(task)"
+      >
+        notifications_off</mat-icon
+      >
+      <i id="trash" class="bi bi-trash" (click)="onDeleteClick(task)"></i>
+    </span>
+  </div>
 </div>
 <br />
