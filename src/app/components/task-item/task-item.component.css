@@ -28,7 +28,9 @@
   font-family: "Dancing Script", cursive;
   font-weight: bolder;
   font-size: 27px;
+  cursor: default;
 }
+
 .unitday {
   background-color: #2f3037;
   background-image: none;
@@ -62,6 +64,7 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
+  cursor: default;
 }
 
 .task-container.reminder {
@@ -79,4 +82,34 @@
   padding-right: 250px;
   padding-left: 250px;
   padding-bottom: 20px;
+}
+
+.form-container,
+.task-container,
+.form-label,
+.form-hint,
+.form-control,
+.edit-container,
+.cancel-icon,
+.sub-btn,
+.sub-icon,
+input {
+  background: #2f3037;
+}
+
+.edit-icon,
+.cancel-icon {
+  cursor: pointer;
+}
+
+.form-container {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-btn {
+  border-radius: 50px;
 }

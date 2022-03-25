@@ -10,6 +10,7 @@
     *ngFor="let task of tasks"
     [task]="task"
     (onDeleteEvent)="deleteTask(task)"
+    (onEditEvent)="editTask(task)"
     (toggleReminderEvent)="toggleReminder(task)"
     (toggleProgressionEvent)="toggleProgression(task)"
     cdkDrag

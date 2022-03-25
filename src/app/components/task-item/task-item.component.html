@@ -1,8 +1,16 @@
 <div class="contasks">
-  <div class="task-container" [ngClass]="{ reminder: task.reminder }">
+  <section
+    class="task-container"
+    [ngClass]="{ reminder: task.reminder }"
+    *ngIf="!editMode"
+  >
+    <mat-icon class="edit-icon" (click)="toggleEditMode()">edit</mat-icon>
     <h5>Task : {{ task.id }}</h5>
     <h3 [ngClass]="{ done: task.done }" class="unitask">{{ task.text }}</h3>
-    <h3 class="unitday">{{ task.day }}</h3>
+    <h3 class="unitday">
+      <p *ngIf="task.edited" class="unitday">editted</p>
+      {{ task.day }}
+    </h3>
     <span class="managetask">
       <mat-icon
         id="donebox"
@@ -34,6 +42,36 @@
       >
       <i id="trash" class="bi bi-trash" (click)="onDeleteClick(task)"></i>
     </span>
-  </div>
+  </section>
+  <section class="edit-container" *ngIf="editMode">
+    <mat-icon class="cancel-icon" (click)="toggleEditMode()"
+      >highlight_off</mat-icon
+    >
+    <form class="form-container" (ngSubmit)="onSubmitEdit(task)">
+      <mat-form-field appearance="outline" class="task-container">
+        <mat-label class="form-label" for="taskText">{{ task.text }}</mat-label>
+        <div class="form-control">
+          <input
+            #input
+            matInput
+            type="text"
+            name="taskText"
+            required
+            maxLength="20"
+            spellcheck="false"
+            [(ngModel)]="taskText"
+            value="{{ task.text }}"
+          />
+          <mat-hint class="form-hint"> Max 20 Characters</mat-hint>
+          <mat-hint class="form-hint" align="end">
+            {{ input.value?.length || 0 }}/20</mat-hint
+          >
+        </div>
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="sub-btn">
+        <mat-icon class="sub-icon">check_circle_outline</mat-icon>
+      </button>
+    </form>
+  </section>
 </div>
 <br />
