@@ -35,6 +35,9 @@ export class TasksComponent implements OnInit {
     this.liveTasksService.addTask(task).subscribe((task) => {
       console.log('task inside subscription:', task);
       this.tasks.push(task);
+      this.liveTasksService.getTasks().subscribe((tasks) => {
+        this.tasks = tasks;
+      });
     });
   }
   editTask(task: Task) {
